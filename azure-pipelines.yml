@@ -3,16 +3,28 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: 1.0.$(Rev:.r)
+
 trigger:
-- main
+ branches:
+   include:
+   - main
+variables:
+ nomUtilisateur: 'DevOps Engineer'
 
 pool:
   name: MonPoolLocal
   demands:
   - HasPaymentService
 
-steps:
-- script: echo Execution sur mon agent local réussi!
-  displayName: 'Test du pool local'
+jobs:
+- job: JobValidation
+  displayName: 'Validation et Test'
+  steps:
+  - checkout: self
+  - script: |
+     echo "Bonjour,$(nomUtilisateur)!"
+     echo "Execution surnle pool local reussie."
+    displayName: 'Afficher le message personnalisé'
 
 
