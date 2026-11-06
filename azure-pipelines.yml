@@ -7,13 +7,10 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: MonPoolLocal
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: echo Execution sur mon agent local réussi!
+  displayName: 'Test du pool local'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
