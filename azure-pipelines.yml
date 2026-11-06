@@ -8,6 +8,8 @@ trigger:
 
 pool:
   name: MonPoolLocal
+  demands:
+  - HasPaymentService
 
 steps:
 - script: echo Execution sur mon agent local réussi!
